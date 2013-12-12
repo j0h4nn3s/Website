@@ -7,10 +7,9 @@
 }
 body {
     background-color: #F0F0F0;
-    /*background-image: url(navy_blue.png);*/
+    min-width: 1400px;
 }
 header {
-    /*background-color: #181818;*/
     background-image: url(navy_blue.png);
     color: white;
     width: 100%;
@@ -38,8 +37,7 @@ header nav li {
 }
 header nav li a {
     background-color: transparent;
-    border: 0px solid /*#E8E8E8;*/white;
-    /*border-width: 1px 0px 0px 1px;*/
+    border: 0px solid white;
     padding: 5px;
     display: inline-block;
     text-decoration: none;
@@ -59,24 +57,90 @@ header nav li a:hover {
     background-color: white;
     color: #555;
 }
-/*header nav li.last a {
-    border-width: 1px 1px 0px 1px;
-    border-radius: 0px 4px 0px 0px;
-}
-header nav li.first a {
-    border-radius: 4px 0px 0px 0px;
-}*/
 #login {
     background-color: white;
     color: #555;
     border: 0px solid #E8E8E8;
     border-bottom: 0px;
     padding: 5px 10px;
+    padding-bottom: 0px;
     width: auto;
     position: absolute;
     right: 10%;
     bottom: 0px;
     border-radius: 4px 4px 0px 0px; 
+}
+#login a {
+    color: #555;
+}
+#login a:hover {
+    color: black;
+}
+#login a:active {
+    text-decoration: underline;
+}
+#small {
+    background-color: white;
+    padding: 30px;
+    border: 1px solid #E8E8E8;
+    margin: 5px 5px 10px 5px;
+    width: 300px;
+    margin: auto;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.04), 0 -2px 2px 0 rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+}
+#small form {
+    display: inline-block;
+    text-align: left; 
+    width: 100%;
+}
+#small form input[type='email'], #small form input[type='password'] {
+    border: 1px solid #555;
+    padding: 3px;
+    margin:1px;
+    width: 100%;
+    box-shadow: 0px 0px 3px 0 rgba(50, 50, 50, 0.3);
+    border-radius: 2px;
+    background-color: #F0F0F0;
+    box-sizing: border-box;
+}
+#small form input[type='email']:hover, #small form input[type='password']:hover {
+    background-color: #D8D8D8;    
+}
+#small form input[type='submit']:hover {
+    background-color: #D8D8D8;
+}
+#small form input[type='submit'] {
+    border: 1px solid #555;
+    border-radius: 3px;
+    background-color: #F0F0F0;
+    padding: 3px;
+    float: right;
+    margin-top: 5px;
+    box-shadow: 0px 0px 3px 0 rgba(50, 50, 50, 0.3);
+    cursor: pointer;
+    font-size: 12pt;
+}
+#small .text {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 10pt;
+}
+#small .text a {
+    color: black;
+}
+#small .text a:hover {
+    color: #555;
+}
+#small .error {
+    display: inline-block;
+    margin-bottom: 10px;
+    border: 1px solid red;
+    border-radius: 4px;
+    padding: 3px;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
 }
 #large {
     background-color: white;
@@ -109,6 +173,7 @@ header nav li.first a {
     -webkit-transition-timing-function: cubic-bezier(.07,.77,0,1.89);
     border-radius: 2px;
     border: 0px;
+    cursor: pointer;
 }
 #large img:hover{
     -webkit-transform:scale(1.07);
@@ -130,7 +195,76 @@ footer a {
 }
 footer a:hover {
     color: #111;
+    
 }
 footer a:active {
-    color: #111;
+    text-decoration: underline;
+}
+#overlay {
+    display: table;
+    visibility: hidden;
+    position: fixed;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    top: 0px;
+    min-width: 1400px;
+}
+#overlay.visible {
+    visibility: visible;
+}
+#overlay #modal-background {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    transition: 0.3s;
+    transition-delay: 0s;
+}
+#overlay.visible #modal-background {
+   visibility: visible;
+   opacity: 0.80;
+  }
+#overlay #modal-container {
+   display: table-cell;
+   text-align: center;
+   vertical-align: middle;
+   width: 100%;
+   height: 100%;
+   position: relative;
+  }
+#bigfatimage {
+    transition: 0.3s;
+    transition-delay: 0.3s;
+    opacity: 0;
+    height: 600px;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 3px;
+}
+#bigfatimage.big {
+    opacity: 1;
+}
+#pictureinformation {
+    height: 568px;
+    display: inline-block;
+    background-color: white;
+    padding: 15px;
+    border: 1px solid #E8E8E8;
+    margin: 0px 15px 0px 15px;
+    border-radius: 3px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.04), 0 -2px 2px 0 rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    vertical-align: middle;
+    width: 400px;
+    text-align: left;
+    opacity: 0;
+    transition: 0.3s;
+    transition-delay: 0.3s;
+}
+#pictureinformation.big {
+    opacity: 1;
 }
