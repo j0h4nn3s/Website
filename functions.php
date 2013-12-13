@@ -37,10 +37,10 @@
         if (true) {
             $menu = array(
               'Home' => 'index.php',
-              'Fotos' => 'seite2.php', 
-              'Archiv' => 'seite3.php',
-              'Infos' => 'seite4.php',
-              'Über' => 'seite5.php'
+              'Fotos' => 'fotos.php', 
+              'Archiv' => 'archiv.php',
+              'Infos' => 'infos.php',
+              'Über' => 'uber.php'
             );
 
             foreach ($menu as $text => $page) {
@@ -58,11 +58,12 @@
         // login
         global $user;
         if (true) {
-            if (!isset($user)) {
+            if (!(isset($user))) {
                 $htmllogin = "<a href='/login.php'>Anmelden</a> | <a href='register.php'>Registrieren</a>";
             }
             else {
-                $htmllogin = "Willkommen, <a href='user.php'>name</a> | <a href='logout.php'>Logout</a>";
+                $uname = $user['first_name'];
+                $htmllogin = "Willkommen, <a href='user.php'>$uname</a> | <a href='logout.php'>Logout</a>";
                 }
             $output = str_replace('{login}',$htmllogin, $output);
         }

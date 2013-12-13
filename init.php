@@ -1,7 +1,9 @@
 <?php
 
     ob_start();
-
+    header('Cache-Control: no-cache, no-store, must-revalidate'); // HTTP 1.1.
+    header('Pragma: no-cache'); // HTTP 1.0.
+    header('Expires: 0'); // Proxies.
 
     $con = openDatabaseConnection();
     
@@ -16,7 +18,10 @@
         if ($row = mysql_fetch_assoc($sql)) {
             $user = array(
                 'id' => intval($row['id']),
-                'email' => $row['email']
+                'email' => $row['email'],
+                'username' => $row['username'],
+                'first_name' => $row['first_name'],
+                'last_name' => $row['last_name']
             );
         }
         else {

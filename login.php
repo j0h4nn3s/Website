@@ -33,7 +33,10 @@
 
                 $user = array(
                     'id' => intval($row['id']),
-                    'email' => $row['email']
+                    'email' => $row['email'],
+                    'username' => $row['username'],
+                    'first_name' => $row['first_name'],
+                    'last_name' => $row['last_name']
                 );
 
                 setcookie('id', $user['id'], time()+3600);

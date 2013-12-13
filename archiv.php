@@ -6,5 +6,6 @@
     include('init.php');
 
     
-    $title='Seite 2'
+    $title='Fotos';
+    $visibility = "visible";
 ?>
