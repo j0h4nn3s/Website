@@ -56,13 +56,13 @@
         }
         
         // login
+        global $user;
         if (true) {
-            if (true) {
-                $currentpage=$_SERVER['SCRIPT_NAME'];
-                $htmllogin = "<a href='/login.php?cpage=$currentpage'>Anmelden</a>";
+            if (!isset($user)) {
+                $htmllogin = "<a href='/login.php'>Anmelden</a> | <a href='register.php'>Registrieren</a>";
             }
             else {
-                $htmllogin = "Willkommen, <a href='user.php'>name</a>";
+                $htmllogin = "Willkommen, <a href='user.php'>name</a> | <a href='logout.php'>Logout</a>";
                 }
             $output = str_replace('{login}',$htmllogin, $output);
         }

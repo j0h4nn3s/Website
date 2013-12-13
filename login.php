@@ -3,15 +3,21 @@
     include('functions.php');
     include('init.php');
     $title='Anmelden';
-    $spage=$_GET["cpage"];
     $visibility="hidden";
     echo '<div id="small">';
 
     if (isset($user)) {
-        echo "<p>Du bist schon angemeldet.</p>";
-        echo "<p><a href='logout.php'>&rsaquo;Logout</a></p>";
+        echo "<div class='text'>Du bist schon angemeldet.<br/>";
+        echo "<a href='logout.php'>Logout</a></div></div>";
     }
     else {
+        $referer = isset($_POST['referer']) ? $_POST['referer'] : $_SERVER['HTTP_REFERER'];        
+        if (strpos($referer, $_SERVER['SERVER_NAME'])!==false) {
+            //referer sind wir selber
+        }   
+        else {
+            $referer='index.php';
+        }
         if (count($_POST) > 0) {
             $email = $_POST['email'];
             $password = $_POST['password'];
@@ -33,10 +39,9 @@
                 setcookie('id', $user['id'], time()+3600);
                 setcookie('password', $row['password'], time()+3600);
 
-                header("Location: $spage");             
-                echo "<div class=text>Erfolgreich angemeldet$page</div>";
-                echo "<p><a href='$spage'>Click</a></p></div>";
-                //redirect to saved page
+                header("Refresh: 1; url=$referer");
+                //first div from id=small second div from class=text
+                echo "<div class='text'>Erfolgreich angemeldet!<br/>Du wirst automatisch weitergeleitet<br/></div></div>";
                 exit();
             }
             else {
@@ -45,12 +50,13 @@
             }
         }
 
-        echo "<form action='login.php?cpage=$spage' method='post'>";
+        echo "<form action='login.php' method='post'>";
         echo "Email: <input type='email' name='email' value='$email' /><br />";
         echo "Passwort: <input type='password' name='password' /><br />";
+        echo "<input type='hidden' name='referer' value='$referer'/>";
         echo "<input type='submit' value='Anmelden' />";
         echo "</form>";
-    }
     echo "<div class='text'>Noch kein Konto? <a href='register.php'>Hier registrieren</a><br/>(Wenn du dich registriert hast kannst du Kommentare schreiben, Bilder bewerten und kannst Zugriff zu nicht &ouml;ffentlichen Bildern erhalten.)</div> </div>";
+    }
 ?>
 
