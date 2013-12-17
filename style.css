@@ -3,7 +3,7 @@
     padding: 0px;
     border: 0px;
     outline: 0px;
-    font-family: 'Helvetica Neue', Helvetica Calibri, sans-serif;
+    font-family: Calibri, sans-serif;
 }
 body {
     background-color: #F0F0F0;
@@ -26,7 +26,7 @@ header h1 {
     margin-bottom: 10px;
 }
 header nav {
-    position: realtive;
+    position: relative;
     marign: auto;
     list-style: none;
 }
@@ -99,13 +99,16 @@ header nav li a:hover {
     padding: 3px;
     margin:1px;
     width: 100%;
-    box-shadow: 0px 0px 3px 0 rgba(50, 50, 50, 0.3);
+    /*box-shadow: 0px 0px 3px 0 rgba(50, 50, 50, 0.3);*/
     border-radius: 2px;
     background-color: #F0F0F0;
     box-sizing: border-box;
 }
 #small form input[type='email']:hover, #small form input[type='password']:hover {
     background-color: #D8D8D8;    
+}
+#small form input[type='checkbox'] {
+    margin-top: 10px;
 }
 #small form input[type='submit']:hover {
     background-color: #D8D8D8;
@@ -117,7 +120,7 @@ header nav li a:hover {
     padding: 3px;
     float: right;
     margin-top: 5px;
-    box-shadow: 0px 0px 3px 0 rgba(50, 50, 50, 0.3);
+    /*box-shadow: 0px 0px 3px 0 rgba(50, 50, 50, 0.3);*/    
     cursor: pointer;
     font-size: 12pt;
 }
@@ -210,6 +213,8 @@ footer a:active {
     z-index: 100;
     top: 0px;
     min-width: 1400px;
+    overflow-y: hidden;
+    overflow-x: scroll;
 }
 #overlay.visible {
     visibility: visible;
@@ -236,6 +241,26 @@ footer a:active {
    height: 100%;
    position: relative;
   }
+#previousimage {
+    height: 600px;
+    display: block;
+    position: absolute;
+    top: -450px;
+    opacity: 0.4;
+    cursor: pointer;
+    
+}
+#nextimage {
+    position: absolute;
+    height: 600px;
+    display: block; 
+    bottom: -450px;
+    opacity: 0.4;
+    cursor: pointer;
+}
+#nextimage:hover, #previousimage:hover {
+    opacity: 0.8;
+}
 #bigfatimage {
     transition: 0.3s;
     transition-delay: 0.3s;
@@ -264,7 +289,28 @@ footer a:active {
     opacity: 0;
     transition: 0.3s;
     transition-delay: 0.3s;
+    color: #555;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 #pictureinformation.big {
     opacity: 1;
+}
+#pictureinformation ul {
+    list-style: none;
+    margin-top: 10px;
+    overflow-y: scroll;
+}
+#pictureinformation li {
+    border-top: 1px solid #555;
+    padding: 3px;
+    font-size: 10pt;
+}
+#pictureinformation li p {
+    font-style: italic;
+    font-size: 12pt;
+}
+#pictureinformation.loading {
+    background-color: white; 
+    background-image: url(loader.gif);
 }

@@ -38,9 +38,14 @@
                     'first_name' => $row['first_name'],
                     'last_name' => $row['last_name']
                 );
-
-                setcookie('id', $user['id'], time()+3600);
-                setcookie('password', $row['password'], time()+3600);
+                if ($_POST['alogin']=="yes") {
+                    $x = time()+60*60*24*365;
+                }
+                else {
+                    $x = 0;
+                }
+                setcookie('id', $user['id'], $x);
+                setcookie('password', $row['password'], $x);
 
                 header("Refresh: 1; url=$referer");
                 //first div from id=small second div from class=text
@@ -57,6 +62,7 @@
         echo "Email: <input type='email' name='email' value='$email' /><br />";
         echo "Passwort: <input type='password' name='password' /><br />";
         echo "<input type='hidden' name='referer' value='$referer'/>";
+        echo "<input type='checkbox' name='alogin' value='yes' checked='checked'/> Angemeldet bleiben?";
         echo "<input type='submit' value='Anmelden' />";
         echo "</form>";
     echo "<div class='text'>Noch kein Konto? <a href='register.php'>Hier registrieren</a><br/>(Wenn du dich registriert hast kannst du Kommentare schreiben, Bilder bewerten und kannst Zugriff zu nicht &ouml;ffentlichen Bildern erhalten.)</div> </div>";

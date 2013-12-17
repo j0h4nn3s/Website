@@ -5,9 +5,9 @@
     <meta name="description" content="Dies ist mein Foto Blog" />
     <meta name="keywords" content="Foto Blog Bilder Johannes Hubert Rutesheim Deutschland" />
     <meta name="author" content="Johannes Hubert" />
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv='content-type' content='text/html; charset=utf-8;' />
-    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv='content-type' content='text/html; charset=utf-8' />
+    <meta http-equiv="Expires" content="-1"/>
     <meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
@@ -21,7 +21,7 @@
 </head>
 <body>
     <header>
-        <h1>Photo in the Box</h1>
+        <h1>{heading}</h1>
         <nav>
             {nav}            
         </nav>
@@ -31,15 +31,15 @@
     </header>
         {content}
     <footer>
-        <a href='copyright.php'>Copyright</a> | <a href='kontakt.php'>Kontakt</a> | <a href='links'.php>Links</a>
+        <a href='copyright.php'>Copyright</a> | <a href='kontakt.php'>Kontakt</a> | <a href='links.php'>Links</a>
     </footer>
     <div id="overlay">
         <div id="modal-background"></div>
         <div id="modal-container">
+            <img id="previousimage" src=""/>
             <img id="bigfatimage" src=""/>
-            <div id="pictureinformation">
-                {pictureinfo}
-            </div>
+            <img id="nextimage" src=""/>
+            <div id="pictureinformation"></div>
         </div>
         
         </div>

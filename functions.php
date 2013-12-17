@@ -32,6 +32,17 @@
                 $output = str_replace('{title}', 'Photo in the Box', $output);
             }
         }
+        //heading 
+        if (true) {
+            $title = $GLOBALS['title'];
+
+            if (strlen($title) > 0) {
+                $output = str_replace('{heading}', "Photo in the Box - $title", $output);
+            }
+            else {
+                $output = str_replace('{heading}', 'Photo in the Box', $output);
+            }
+        }
         
         // menu
         if (true) {
@@ -100,13 +111,13 @@ function printpictures($resultfolder) {
 	for ($i=0; $i<($count02); $i++) {
 		echo '<div class="col">';
 		for ($x=0; $x<3; $x++) {  
-			echo '<img src="'.$allRows[(($i*3)+$x)][2].'" />';
+			echo '<img src="'.$allRows[($i*3+$x)][2].'" id="'."img-".$allRows[($i*3+$x)][0].'" />';
 		}
 		echo '</div>';
 	}
 	echo '<div class="col">';
 	for ($y=0; $y<($count01%3); $y++) {
-		echo '<img src="'.$allRows[($count02*3+$y)][2].'" />';
+		echo '<img src="'.$allRows[($count02*3+$y)][2].'" id="'."img-".$allRows[($count02*3+$y)][0].'"/>';
 	} 
 	echo '</div></div></div></div>';
 }     

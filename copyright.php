@@ -6,6 +6,6 @@
     include('init.php');
 
     
-    $title='Fotos';
+    $title='Copyright';
     $visibility = "visible";
 ?>
